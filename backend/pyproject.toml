@@ -7,43 +7,57 @@ authors = [
     { name = "RMA-MUN", email = "n3032747608@163.com" }
 ]
 dependencies = [
+    # env
     "python-dotenv~=1.2.2",
-    "SQLAlchemy~=2.0.48",
-    "langchain-core~=1.2.17",
-    "aiofiles~=25.1.0",
-    "langchain-text-splitters~=1.1.1",
-    "fastapi~=0.123.0",
-    "starlette~=0.50.0",
-    "pydantic-settings~=2.13.1",
-    "langchain-community~=0.4.1",
-    "python-jose~=3.5.0",
-    "PyYAML~=6.0.3",
-    "pydantic~=2.12.5",
-    "requests~=2.32.5",
-    "uvicorn==0.21.1",
-    "aiomysql>=0.3.2",
-    "redis>=7.3.0",
-    "langchain-ollama>=1.0.1",
-    "langchain>=1.2.13",
-    "langchain-chroma>=1.1.0",
-    "python-multipart>=0.0.22",
+    "PyYAML~=6.0.3", #
+
+    # llm-providers
     "dashscope>=1.25.14",
-    "pypdf>=6.9.2",
-    "python-magic>=0.4.27",
-    "python-magic-bin>=0.4.14",
-    "sentence-transformers>=5.3.0",
-    "modelscope>=1.35.3",
-    "accelerate>=1.13.0",
-    "torch>=2.11.0",
-    "torchvision>=0.26.0",
-    "torchaudio>=2.11.0",
-    "langchain-dashscope>=0.1.8",
-    "unstructured[all-docs]>=0.22.20",
+    "modelscope>=1.35.3", #
+
+    # langchain
+    "langchain>=1.2.13",
+    "langchain-core~=1.2.17",
+    "langchain-community~=0.4.1",
+    "langchain-text-splitters~=1.1.1",
     "langsmith>=0.7.22",
     "langgraph-cli[inmem]>=0.1.54",
-    "rank-bm25>=0.2.2",
+    ## rag
+    "langchain-chroma>=1.1.0", # 向量存储与索引
+    "sentence-transformers>=5.3.0",
+    "rank-bm25>=0.2.2", # TF-IDF算法的升级版
+    ## ml-local
+    "torch>=2.11.0",
+    "accelerate>=1.13.0", # 大模型加载与多设备加速
+    "torchvision>=0.26.0",
+    "torchaudio>=2.11.0",
+    ## langchain-integrations
+    "langchain-ollama>=1.0.1",
+    "langchain-dashscope>=0.1.8", #
+
+    # persistence
+    "SQLAlchemy~=2.0.48",
+    "aiomysql>=0.3.2",
+    "redis>=7.3.0", #
+
+    # web
+    "fastapi~=0.123.0",
+    "uvicorn==0.21.1",
+    "starlette~=0.50.0", # Asynchronous Server Gateway Interface
+    "pydantic~=2.12.5",
+    "python-multipart>=0.0.22",
+    "pydantic-settings~=2.13.1",
+    "python-jose~=3.5.0", # JavaScript Object Signing and Encryption
+
+    # tools
+    "requests~=2.32.5",
+    "aiofiles~=25.1.0",
+    "pypdf>=6.9.2",
     "pymupdf>=1.25.0",
-    "pillow>=10.0.0",
+    "unstructured[all-docs]>=0.22.20", # 统一解析 Word/PPT/Markdown/HTML 等（Unstructured*Loader）
+    "pillow>=10.0.0", # Python Imaging Library
+    "python-magic>=0.4.27", # 根据文件魔数判断真实类型
+    "python-magic-bin>=0.4.14",
     "imagehash>=4.3.0",
 ]
 
@@ -61,5 +75,5 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
 
 [tool.uv]
-venv.path = ".venv"
+#venv.path = ".venv"
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
